@@ -64,12 +64,17 @@ $ CREATE DATABASE knowledge;
 
 // no backend
 $ knex init // criar arquivo knex
+
 $ knex migrate:make create_table_users // cria tabela users
 $ knex migrate:make create_table_categories
 $ knex migrate:make create_table_articles
+
 $ knex migrate:latest // criar tables definidas nas migrations da primeira para a última -> método UP
 $ knex migrate:rollback // "     "       "       "    "         " última para a primeira -> método DOWN
 
+// soft delete de usuário
+$ knex migrate:make add_deleted_at_table_users
+$ knex migrate:latest
 
 
 
